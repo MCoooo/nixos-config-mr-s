@@ -18,10 +18,10 @@
       (./. + "/${hostname}/boot.nix")
       (./. + "/${hostname}/hardware.nix")
 
-      ./common/base
-      ./common/users/${username}
+      # ./common/base
+      # ./common/users/${username}
     ]
-    ++ lib.optional (builtins.pathExists (./. + "/${hostname}/extra.nix")) ./${hostname}/extra.nix
+    # ++ lib.optional (builtins.pathExists (./. + "/${hostname}/extra.nix")) ./${hostname}/extra.nix
     # Include desktop config if a desktop is defined
     ++ lib.optional (builtins.isString desktop) ./common/desktop;
 
@@ -43,10 +43,10 @@
     #   # (_: _: { embr = inputs.embr.packages."${pkgs.system}".embr; })
     # ];
 
-    config = {
-      allowUnfree = true;
-      joypixels.acceptLicense = true;
-    };
+    # config = {
+    #   allowUnfree = true;
+    #   joypixels.acceptLicense = true;
+    # };
   };
 
   nix = {
@@ -56,18 +56,18 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mkForce (
-      lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry
-    );
+    # nixPath = lib.mkForce (
+    #   lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry
+    # );
 
-    optimise.automatic = true;
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
+    # optimise.automatic = true;
+    # settings = {
+    #   auto-optimise-store = true;
+    #   experimental-features = [
+    #     "nix-command"
+    #     "flakes"
+    #   ];
+    # };
   };
 
   system = {

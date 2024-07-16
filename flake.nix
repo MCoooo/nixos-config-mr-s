@@ -54,32 +54,32 @@
     in
     {
       # nix build .#homeConfigurations."jon@freyja".activationPackage
-      homeConfigurations = {
-        # Desktop machines
-        "${username}@freyja" = libx.mkHome {
-          hostname = "freyja";
-          desktop = "hyprland";
-        };
-        "${username}@kara" = libx.mkHome {
-          hostname = "kara";
-          desktop = "hyprland";
-        };
-        # Headless machines
-        "${username}@hugin" = libx.mkHome { hostname = "hugin"; };
-        "${username}@thor" = libx.mkHome { hostname = "thor"; };
-        "${username}@volnir" = libx.mkHome {
-          hostname = "volnir";
-          system = "aarch64-linux";
-        };
-        "ubuntu@dev" = libx.mkHome {
-          hostname = "dev";
-          user = "ubuntu";
-        };
-        "${username}@apple" = libx.mkHome {
-          hostname = "apple";
-          system = "aarch64-linux";
-        };
-      };
+      # homeConfigurations = {
+      #   # Desktop machines
+      #   "${username}@freyja" = libx.mkHome {
+      #     hostname = "freyja";
+      #     desktop = "hyprland";
+      #   };
+      #   "${username}@kara" = libx.mkHome {
+      #     hostname = "kara";
+      #     desktop = "hyprland";
+      #   };
+      #   # Headless machines
+      #   "${username}@hugin" = libx.mkHome { hostname = "hugin"; };
+      #   "${username}@thor" = libx.mkHome { hostname = "thor"; };
+      #   "${username}@volnir" = libx.mkHome {
+      #     hostname = "volnir";
+      #     system = "aarch64-linux";
+      #   };
+      #   "ubuntu@dev" = libx.mkHome {
+      #     hostname = "dev";
+      #     user = "ubuntu";
+      #   };
+      #   "${username}@apple" = libx.mkHome {
+      #     hostname = "apple";
+      #     system = "aarch64-linux";
+      #   };
+      # };
 
       # nix build .#nixosConfigurations.freyja.config.system.build.toplevel
       nixosConfigurations = {
@@ -103,7 +103,8 @@
         };
         volnir = libx.mkHost {
           hostname = "volnir";
-          pkgsInput = nixpkgs;
+          # pkgsInput = nixpkgs;
+          desktop = "hyprland";
         };
         apple = libx.mkHost {
           hostname = "apple";
