@@ -117,7 +117,7 @@
         let
           pkgs = unstable.legacyPackages.${system};
         in
-        import ./pkgs { inherit pkgs; }
+        # import ./pkgs { inherit pkgs; }
       );
 
       # Custom overlays
@@ -125,14 +125,14 @@
 
       # Devshell for bootstrapping
       # Accessible via 'nix develop' or 'nix-shell' (legacy)
-      devShells = libx.forAllSystems (
-        system:
-        let
-          pkgs = unstable.legacyPackages.${system};
-        in
-        import ./shell.nix { inherit pkgs; }
-      );
+      # devShells = libx.forAllSystems (
+      #   system:
+      #   let
+      #     pkgs = unstable.legacyPackages.${system};
+      #   in
+      #   import ./shell.nix { inherit pkgs; }
+      # );
 
-      formatter = libx.forAllSystems (system: self.packages.${system}.nixfmt-plus);
+      # formatter = libx.forAllSystems (system: self.packages.${system}.nixfmt-plus);
     };
 }
