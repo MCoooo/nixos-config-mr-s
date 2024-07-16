@@ -101,6 +101,10 @@
           hostname = "volnir";
           pkgsInput = nixpkgs;
         };
+        apple = libx.mkHost {
+          hostname = "apple";
+          pkgsInput = nixpkgs;
+        };
       };
 
       # Custom packages; acessible via 'nix build', 'nix shell', etc
