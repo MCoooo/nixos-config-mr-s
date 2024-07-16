@@ -75,6 +75,10 @@
           hostname = "dev";
           user = "ubuntu";
         };
+        "${username}@apple" = libx.mkHome {
+          hostname = "apple";
+          system = "aarch64-linux";
+        };
       };
 
       # nix build .#nixosConfigurations.freyja.config.system.build.toplevel
@@ -117,7 +121,7 @@
       );
 
       # Custom overlays
-      overlays = import ./overlays { inherit inputs; };
+      # overlays = import ./overlays { inherit inputs; };
 
       # Devshell for bootstrapping
       # Accessible via 'nix develop' or 'nix-shell' (legacy)
