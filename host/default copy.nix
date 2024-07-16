@@ -26,22 +26,22 @@
     ++ lib.optional (builtins.isString desktop) ./common/desktop;
 
   nixpkgs = {
-    # overlays = [
-    #   # Add overlays your own flake exports (from overlays and pkgs dir):
-    #   outputs.overlays.additions
-    #   outputs.overlays.modifications
-    #   outputs.overlays.unstable-packages
+    overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
 
-    #   # You can also add overlays exported from other flakes:
-    #   # neovim-nightly-overlay.overlays.default
-    #   inputs.agenix.overlays.default
-    #   inputs.flypi.overlay
-    #   inputs.hyprland.overlays.default
-    #   inputs.libations.overlays.default
+      # You can also add overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+      inputs.agenix.overlays.default
+      inputs.flypi.overlay
+      inputs.hyprland.overlays.default
+      inputs.libations.overlays.default
 
-    #   # Or just specify overlays directly here, for example:
-    #   # (_: _: { embr = inputs.embr.packages."${pkgs.system}".embr; })
-    # ];
+      # Or just specify overlays directly here, for example:
+      # (_: _: { embr = inputs.embr.packages."${pkgs.system}".embr; })
+    ];
 
     config = {
       allowUnfree = true;
